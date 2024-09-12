@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Email and SMS Service</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-envelope"></i> Send Bulk Email and SMS</h1>
+        
+        <!-- Navigation Links -->
+        <div class="navigation">
+            <a href="send-email.html" class="nav-link">Send Email</a>
+            <a href="send-sms.html" class="nav-link">Send SMS</a>
+        </div>
+        
+        <form id="bulkForm">
+            <label for="type"><i class="fas fa-envelope-open-text icon"></i> Choose Type:</label>
+            <select id="type">
+                <option value="email">Email</option>
+                <option value="sms">SMS</option>
+            </select>
+            
+            <label for="content"><i class="fas fa-pencil-alt icon"></i> Content:</label>
+            <textarea id="content" rows="5" placeholder="Type your message here..."></textarea>
+            
+            <label for="recipients"><i class="fas fa-address-book icon"></i> Recipients (one per line):</label>
+            <textarea id="recipients" rows="5" placeholder="Enter recipient emails or phone numbers..."></textarea>
+            
+            <!-- Checkbox Section -->
+            <div class="checkbox-section">
+                <label><input type="checkbox" id="emailCheckbox" checked> Send as Email</label><br>
+                <label><input type="checkbox" id="smsCheckbox"> Send as SMS</label>
+            </div>
+            
+            <button type="button" onclick="sendBulk()"><i class="fas fa-paper-plane"></i> Send</button>
+        </form>
+        
+        <div id="response"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

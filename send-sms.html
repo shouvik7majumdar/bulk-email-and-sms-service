@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulk Email and SMS Service</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Send SMS</h1>
+    <form id="smsForm">
+        <label for="to">Recipient Phone Number:</label>
+        <input type="tel" id="to" name="to" required><br><br>
+        <label for="body">Message:</label>
+        <textarea id="body" name="body" required></textarea><br><br>
+        <button type="button" onclick="sendSMS()">Send SMS</button>
+    </form>
+
+    <script>
+        function sendSMS() {
+            const to = document.getElementById('to').value;
+            const body = document.getElementById('body').value;
+
+            fetch('http://localhost:3000/send-sms', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ to, body }),
+            })
+            .then(response => response.text())
+            .then(data => alert('Response: ' + data))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
